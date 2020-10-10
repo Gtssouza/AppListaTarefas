@@ -17,7 +17,7 @@
 		function editar(id, txt_tarefa){
 			//criar um form de edicao
 			let form = document.createElement('form')
-			form.action = '#'
+			form.action = 'tarefa_controler.php?acao=atualizar'
 			form.method = 'post'
 			form.className = 'row'
 
@@ -29,7 +29,10 @@
 			inputTarefa.value = txt_tarefa
 
 			//criar um input hidden para guardar o id da tarefa
-			
+			let inputId = document.createElement('input')
+			inputId.type = 'hidden'
+			inputId.name = 'id'
+			inputId.value = id
 
 			//criar um button para envio do form
 			let button = document.createElement('button')
@@ -39,6 +42,9 @@
 
 			//incluir inputTarefa no form
 			form.appendChild(inputTarefa)
+
+			//incluir um inputId no form
+			form.appendChild(inputId)
 
 			//incluir button no form
 			form.appendChild(button)
